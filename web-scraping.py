@@ -35,10 +35,10 @@ time.sleep(2)
 # all_matches_button = driver.find_element_by_xpath('//a[@ui-sref="site.fixtures"]')
 # all_matches_button.click()
 matches = driver.find_elements("xpath",t1)
-d = '//td[1]'
-h = '//td[2]'
-s = '//td[3]'
-a = '//td[4]'
+d = './tr[1]'
+h = './tr[2]'
+s = './tr[3]'
+a = './tr[4]'
 
 date = []
 home_team = []
@@ -48,10 +48,19 @@ away_team = []
 
 
 for match in matches:
-    date.append(match.find_element_by_xpath('./td[1]').text)
-    home_team.append(match.find_element_by_xpath('./td[2]').text)
-    score.append(match.find_element_by_xpath('./td[3]').text)
-    away_team.append(match.find_element_by_xpath('./td[4]').text)
+    de = driver.find_elements("xpath",d)
+    print(de)
+    date.append()
+    hm = driver.find_elements("xpath",h)
+    home_team.append(hm)
+    sc = driver.find_elements("xpath",s)
+    score.append(sc)
+    aw = driver.find_elements("xpath",a)
+    away_team.append(aw)
+    # date.append(match.find_element("xpath",d).text)
+    # home_team.append(match.find_element("xpath",h).text)
+    # score.append(match.find_element("xpath",s).text)
+    # away_team.append(match.find_element("xpath",a).text)
     # data.append.matches = driver.find_elements("xpath",d)
     # home_team.append.matches = driver.find_elements("xpath",h)
     # score.append.matches = driver.find_elements("xpath",s)
