@@ -25,9 +25,7 @@ for i in range (len(yearly)):
                 'Population':populantion[i].text,
                 'Yearly Change':yearly[i].text,
                 'World Share':wrold_share[i].text
-
-    
-              }
+                }
     world_populantion.append(temp_data)
 
 df_data = pd.DataFrame(world_populantion)
