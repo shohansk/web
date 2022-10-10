@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
+import random
 with open('job_scraping.csv', 'w') as file:
     file.write("Job_title; Salary; Company \n")
 
@@ -74,10 +75,10 @@ company_name = driver.find_elements(By.CLASS_NAME,"sc-fzoiQi") # company name
 # titttt = driver.find_elements(By.CLASS_NAME,"resultlist-hbjkz4")
 job_scraping = []
 time.sleep(2)
-last_page_number = driver.find_elements(By.CLASS_NAME,"resultlist-kyg8or")
+last_page_number = driver.find_elements(By.CLASS_NAME,"resultlist-3954uy")
 
 print(len(last_page_number))
-for i in range (10):
+for i in range (20):
     job_title1 = driver.find_elements(By.CLASS_NAME,"sc-fzqMAW") # s_job_title
     job_salary = driver.find_elements(By.CLASS_NAME,"sc-fzoJMP") # s_salary
     company_name = driver.find_elements(By.CLASS_NAME,"sc-fzoiQi") # company name
@@ -90,8 +91,8 @@ for i in range (10):
             
         next=driver.find_element('xpath','//a[@aria-label="Next"]')
         next.click()
-        time.sleep(2)
-    # file.close()
+        time.sleep(6)
+    file.close()
 
 
 
