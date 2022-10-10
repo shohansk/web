@@ -1,8 +1,10 @@
+from fileinput import filename
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
+import wget
+filename1 = 'C:/Users/Mediusware/Documents/New folder (3)'
 path='C:/Users/Mediusware/Documents/chromedrive/chromedriver.exe'
 driver = webdriver.Chrome(path)
 driver.get("https://www.amazon.in")
@@ -15,12 +17,13 @@ driver.find_element(By.ID,"nav-search-submit-button").click()
 driver.find_element(By.XPATH,"//span[text()='Dell']").click()
 
 laptops = driver.find_elements(By.XPATH,'//div[@data-component-type="s-search-result"]')
-
+test = driver.find_elements(By.CLASS_NAME,"s-pagination-strip")
+print(len(test))
 laptop_name = []
 laptop_price = []
 no_reviews = []
 image_list = []
-print(len(laptops))
+# print(len(laptops))
 for laptop in laptops: 
   
     names =laptop.find_elements(By.XPATH,".//span[@class='a-size-medium a-color-base a-text-normal']")
@@ -55,8 +58,10 @@ for laptop in laptops:
             image = laptop.find_elements(By.CLASS_NAME,"s-image")
             for i in image:
                 img = i.get_attribute("src")
-                image_list.append(img)
+                
                 print(img)
+                filename1 = wget.download(img)
+                image_list.append("file:///C:/web/"+filename1)
 
         else:
             image_list.append("NULL")
